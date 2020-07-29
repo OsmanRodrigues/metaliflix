@@ -23,3 +23,9 @@ body {
 a {
   color: inherit;
 } 
+
+#root{
+  min-height: 100vh /* calc(100vh - var(--bodyPaddingTop)) */;
+  display: flex;
+  flex-direction: column;
+}

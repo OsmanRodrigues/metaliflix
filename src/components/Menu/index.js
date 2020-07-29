@@ -5,15 +5,19 @@ import {
   MenuWrapper, Logo, ButtonLink
 }from './styles';
 
+import { Link } from 'react-router-dom';
+
 const Menu =()=>{
 
   return(
     <MenuWrapper>
-      <a href='/'>
+      <Link to='/'>
        <Logo src={logo} alt='logo'/>
-      </a>
+      </Link>
 
-      <ButtonLink href='/'>
+      <ButtonLink
+        as={Link} 
+        to='/cadastro/video'>
         Novo vídeo
       </ButtonLink>
     </MenuWrapper>
