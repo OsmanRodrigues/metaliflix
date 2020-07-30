@@ -13,7 +13,6 @@ const Main = styled.main`
 `;
 
 const PageDefault = ({ children }) =>{
-  console.log(children)
   return(
     <>
       <Menu />

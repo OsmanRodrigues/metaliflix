@@ -10,7 +10,7 @@ function App() {
   const mountCarousel = DB.categorias.map(category =>{
       const categoryIndex = DB.categorias.indexOf(category);
 
-      return categoryIndex != 0 && <VideoCardGroup 
+      return categoryIndex !== 0 && <VideoCardGroup 
       ignoreFirstVideo = {false}
       category = {category} 
       />;
