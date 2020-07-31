@@ -1,7 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import PageDefault from '../../../components/PageDefault';
 import { Link } from 'react-router-dom';
-
+import { ButtonLink } from '../../../components/Menu/styles';
+import {
+  FormFieldWrapper, Label, Input
+} from './styles';
 const CadastroCategoria = () =>{
 
   const [inputValues, setInputValues] = useState({
@@ -31,51 +34,66 @@ const CadastroCategoria = () =>{
     })
   }
 
+  useEffect(()=>{
+    const DB_URL = 'http://localhost:8080/categories' 
+    fetch(DB_URL).then(async(r)=>{
+      const response = await r.json();
+      console.log(response)
+    })
+  }, [])
+  
   return(
     <PageDefault>
       
     <h1>Cadastro da categoria: {inputValues.currentCategory} </h1>
       
       <form onSubmit={handleSubmit}>
-        <>
-          <label>
-            Nome da categoria:
-            <input
+        <FormFieldWrapper>
+          <Label>
+            <Input
             name='currentCategory'
             type='text'
             value={inputValues.currentCategory}
             onChange={handleInputChange}
             />
-          </label>
-        </>
-        <br/>
-        <>
-          <label>
-            Descrição:
-            <textarea
+            <Label.Text>
+            Nome da categoria:
+            </Label.Text> 
+          </Label>
+        </FormFieldWrapper>
+        
+        <FormFieldWrapper>
+          <Label>
+            <Input
             name='description'
-            type='textarea'
+            as='textarea'
             value={inputValues.description}
             onChange={handleInputChange}
             />
-          </label>
-        </>
-        <br/>
-        <>
-          <label>
-            Cor da categoria:
-            <input
+
+            <Label.Text>
+              Descrição:   
+            </Label.Text>
+          </Label>
+        </FormFieldWrapper>
+        
+        <FormFieldWrapper>
+          <Label>
+            <Input
             name='color'
             type='color'
             value={inputValues.color}
             onChange={handleInputChange}
             />
-          </label>
-        </>
-        <br/>
-        <button>
+            <Label.Text>
+              Cor: 
+            </Label.Text>
+          </Label>
+        </FormFieldWrapper>
+        
+        <ButtonLink>
           Cadastrar
-        </button>
+        </ButtonLink>
       </form>
 
       <ul>

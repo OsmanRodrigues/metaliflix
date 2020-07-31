@@ -1,0 +1,16 @@
+{
+  "categories":[
+    {
+      "id": 1,
+      "name":"Front End",
+      "description":"Uma categoria bacanudassa",
+      "color":"#cbdlff"
+    },
+    {
+      "id": 2,
+      "name":"Back End",
+      "description":"Outra categoria bacanudassa",
+      "color":"#cbdlff"
+    }
+  ]
+}
