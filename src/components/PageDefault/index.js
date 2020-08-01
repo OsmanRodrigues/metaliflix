@@ -10,6 +10,7 @@ const Main = styled.main`
   padding-top: 50px;
   padding-left: 5%;
   padding-right: 5%;
+  padding: 0;
 `;
 
 const PageDefault = ({ children }) =>{

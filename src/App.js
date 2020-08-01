@@ -1,35 +1,38 @@
-import React from 'react';
-import Menu from './components/Menu';
+import React, { useEffect, useState } from 'react';
 import BannerMain from './components/BannerMain';
 import VideoCardGroup from './components/Carousel';
-import Footer from './components/Footer';
-import DB from './data/dados_iniciais.json';
+import PageDefault from './components/PageDefault';
 
 function App() {
+  const [categories, setCategories] = useState(null)
   
-  const mountCarousel = DB.categorias.map(category =>{
-      const categoryIndex = DB.categorias.indexOf(category);
-
-      return categoryIndex !== 0 && <VideoCardGroup 
-      ignoreFirstVideo = {false}
+  const mountCarousel = categories && categories.map(category =>{
+      return <VideoCardGroup 
+      ignoreFirstVideo = {true}
       category = {category} 
       />;
   });
 
+  useEffect(()=>{
+    //configurar custom instance com axios
+    const DB_URL = 'http://localhost:8080/categorias?_embed=videos' 
+    fetch(DB_URL).then(async(r)=>{
+      const response = await r.json();
+      setCategories(response)
+    })
+  }, [])
   return (
-    <div>
-      <Menu/>
-
-      <BannerMain
-      videoTitle = {DB.categorias[0].videos[0].titulo}
-      videoDescription = {DB.categorias[0].link_extra.text}
-      url = {DB.categorias[0].videos[0].url}
-      />
-  
+    <PageDefault>
+      {
+        categories &&
+        <BannerMain
+        videoTitle = {categories[0].videos[0].titulo}
+        videoDescription = {categories[0].link_extra.text}
+        url = {categories[0].videos[0].url}
+        />
+      }
       {mountCarousel}
-
-      <Footer/>
-    </div>
+    </PageDefault>
   );
 }
 

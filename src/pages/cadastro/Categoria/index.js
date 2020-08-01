@@ -1,60 +1,52 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import PageDefault from '../../../components/PageDefault';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { ButtonLink } from '../../../components/Menu/styles';
 import {
   FormFieldWrapper, Label, Input
 } from './styles';
-const CadastroCategoria = () =>{
+import{useForm} from '../../../hooks/hooks';
 
-  const [inputValues, setInputValues] = useState({
+const CadastroCategoria = () =>{
+  const history = useHistory()
+  const initialValues = {
     currentCategory: '',
-    categories: [],
     description: '',
     color: '#000'
-  })
-
-  const handleInputChange = (event) =>{
-    const {value, name} = event.target
-    setInputValues({...inputValues, [name]: value})
   }
 
+  const {values, clearForm, handleChange} = useForm(initialValues)
+  const [categories, setCategories] = useState([])
+  
   const handleSubmit = (event)=>{
+    console.log('submeteu')
     event.preventDefault()
-
-    setInputValues({
-      ...inputValues,
-      currentCategory: '',
-      description: '',
-      color: '#000',
-      categories:[
-        ...inputValues.categories, 
-        inputValues.currentCategory
-      ]
-    })
+    clearForm()
+    history.push('/')
   }
-
+ 
   useEffect(()=>{
-    const DB_URL = 'http://localhost:8080/categories' 
+    const DB_URL = 'http://localhost:8080/categorias' 
     fetch(DB_URL).then(async(r)=>{
       const response = await r.json();
-      console.log(response)
+      setCategories(response)
     })
   }, [])
-  
+
   return(
     <PageDefault>
       
-    <h1>Cadastro da categoria: {inputValues.currentCategory} </h1>
-      
+      <h1>Cadastro da categoria: {values.currentCategory} </h1>
+        {/* TODO: analisar comportamento do onsubmit */}
       <form onSubmit={handleSubmit}>
         <FormFieldWrapper>
-          <Label>
+          <Label htmlFor='1'>
             <Input
+            id='1'
             name='currentCategory'
             type='text'
-            value={inputValues.currentCategory}
-            onChange={handleInputChange}
+            value={values.currentCategory}
+            onChange={handleChange}
             />
             <Label.Text>
             Nome da categoria:
@@ -63,12 +55,13 @@ const CadastroCategoria = () =>{
         </FormFieldWrapper>
         
         <FormFieldWrapper>
-          <Label>
+          <Label htmlFor='2'>
             <Input
+            id='2'
             name='description'
-            as='textarea'
-            value={inputValues.description}
-            onChange={handleInputChange}
+            as='textarea'currentCategory
+            value={values.description}
+            onChange={handleChange}
             />
 
             <Label.Text>
@@ -78,12 +71,13 @@ const CadastroCategoria = () =>{
         </FormFieldWrapper>
         
         <FormFieldWrapper>
-          <Label>
+          <Label htmlFor='3'>
             <Input
+            id='3'
             name='color'
             type='color'
-            value={inputValues.color}
-            onChange={handleInputChange}
+            value={values.color}
+            onChange={handleChange}
             />
             <Label.Text>
               Cor: 
@@ -91,16 +85,16 @@ const CadastroCategoria = () =>{
           </Label>
         </FormFieldWrapper>
         
-        <ButtonLink>
+        <ButtonLink onClick={handleSubmit}>
           Cadastrar
         </ButtonLink>
       </form>
 
       <ul>
-        {
-          inputValues.categories.map( (category, index) =>
-            <li key={`${category}${index}`}>{category}</li>
-          )
+        { 
+          categories.map( (category, index) =>{
+          return <li key={`${category}${index}`}>{category.titulo}</li>
+          })
         }
       </ul>
 
