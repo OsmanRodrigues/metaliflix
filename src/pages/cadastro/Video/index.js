@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PageDefault from '../../../components/PageDefault';
 import { Link, useHistory } from 'react-router-dom';
 import { FormFieldWrapper, Label, Input } from '../Categoria/styles';
-import { useForm } from '../../../hooks/hooks';
+import { useForm, useCategoriesList } from '../../../hooks/hooks';
 import { ButtonLink } from '../../../components/Menu/styles';
 
 const CadastroVideo = () =>{
@@ -14,8 +14,8 @@ const CadastroVideo = () =>{
     categoryId: 1
   }
   const {values, handleChange, clearForm} = useForm(initialValues)
-  const [categories, setCategories] = useState(null)
-
+  const {categoriesList} = useCategoriesList()
+  
   const registerVideo = async (videoInfos) =>{
     //TODO: organizar com instancia custom do axios
     const DB_URL = 'http://localhost:8080/videos' 
@@ -46,19 +46,13 @@ const CadastroVideo = () =>{
     clearForm()
   } 
 
-  useEffect(()=>{
-    const DB_URL = 'http://localhost:8080/categorias' 
-    fetch(DB_URL).then(async(r)=>{
-      const response = await r.json();
-      setCategories(response)
-    })
-  }, [])
   //TODO: validar forms, tratar erros
   //TODO: ajustar responsividade do botão de cadastrar
   return(
     <PageDefault>
       
-      <h1>Cadastro do vídeo</h1>
+      <h1>Cadastro de Vídeo</h1>
+
       <form>
         <FormFieldWrapper>
           <Label htmlFor='1'>
@@ -93,7 +87,7 @@ const CadastroVideo = () =>{
         <FormFieldWrapper>
           <Label htmlFor='3'>
             <Input
-            autoComplete={categories ? 'off':'on'}
+            autoComplete={categoriesList ? 'off':'on'}
             id='3'
             name='category'
             type='text'
@@ -105,8 +99,12 @@ const CadastroVideo = () =>{
             Categoria:
             </Label.Text>
           </Label>
+
           <datalist id={'suggestionFor_3'}>
-            {categories && categories.map(category=>{
+            {! categoriesList ?
+             <option>Carregando Lista de Categorias...</option>
+             :
+             categoriesList.map(category=>{
               return <option value={category.titulo}>
                 {category.titulo}
               </option>
@@ -118,13 +116,17 @@ const CadastroVideo = () =>{
           Cadastrar
         </ButtonLink>
       </form>
+
       <br/>
+
       <Link to="/cadastro/categoria">
-        Cadastrar Categoria
+        Cadastro de Categoria
       </Link>
+
       <br/>
+
       <Link to="/">
-        Voltar para home
+        Voltar
       </Link>
     </PageDefault>
   )

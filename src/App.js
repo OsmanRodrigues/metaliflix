@@ -3,10 +3,17 @@ import BannerMain from './components/BannerMain';
 import VideoCardGroup from './components/Carousel';
 import PageDefault from './components/PageDefault';
 
+import {getAllContent} from './services/api';
+
+import dotenv from 'dotenv';
+
 function App() {
-  const [categories, setCategories] = useState(null)
+
+  dotenv.config()
+
+  const [content, setContent] = useState(null)
   
-  const mountCarousel = categories && categories.map(category =>{
+  const mountCarousel = content && content.map(category =>{
       return <VideoCardGroup 
       ignoreFirstVideo = {true}
       category = {category} 
@@ -14,21 +21,24 @@ function App() {
   });
 
   useEffect(()=>{
-    //configurar custom instance com axios
-    const DB_URL = 'http://localhost:8080/categorias?_embed=videos' 
-    fetch(DB_URL).then(async(r)=>{
-      const response = await r.json();
-      setCategories(response)
+    getAllContent()
+    .then( async (response) =>{ 
+      const allContent = await response.data
+      setContent(allContent)
+    }).catch(error =>{
+      console.log(error.message)
+      window.alert('Desculpe, não foi possível carregar os vídeos...')
     })
   }, [])
+
   return (
     <PageDefault>
       {
-        categories &&
+        content &&
         <BannerMain
-        videoTitle = {categories[0].videos[0].titulo}
-        videoDescription = {categories[0].link_extra.text}
-        url = {categories[0].videos[0].url}
+        videoTitle = {content[0].videos[0].titulo}
+        videoDescription = {content[0].link_extra.text}
+        url = {content[0].videos[0].url}
         />
       }
       {mountCarousel}

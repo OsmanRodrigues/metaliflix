@@ -1,14 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import PageDefault from '../../../components/PageDefault';
 import { Link, useHistory } from 'react-router-dom';
 import { ButtonLink } from '../../../components/Menu/styles';
 import {
   FormFieldWrapper, Label, Input
 } from './styles';
-import{useForm} from '../../../hooks/hooks';
+
+import{useForm, useCategoriesList} from '../../../hooks/hooks';
 
 const CadastroCategoria = () =>{
   const history = useHistory()
+
   const initialValues = {
     currentCategory: '',
     description: '',
@@ -16,7 +18,7 @@ const CadastroCategoria = () =>{
   }
 
   const {values, clearForm, handleChange} = useForm(initialValues)
-  const [categories, setCategories] = useState([])
+  const {categoriesList} = useCategoriesList()
   
   const handleSubmit = (event)=>{
     console.log('submeteu')
@@ -24,20 +26,15 @@ const CadastroCategoria = () =>{
     clearForm()
     history.push('/')
   }
- 
-  useEffect(()=>{
-    const DB_URL = 'http://localhost:8080/categorias' 
-    fetch(DB_URL).then(async(r)=>{
-      const response = await r.json();
-      setCategories(response)
-    })
-  }, [])
 
   return(
     <PageDefault>
       
-      <h1>Cadastro da categoria: {values.currentCategory} </h1>
-        {/* TODO: analisar comportamento do onsubmit */}
+      <h1>Cadastro de Categoria: {values.currentCategory} </h1>
+        {/* 
+        TODO: analisar comportamento do onsubmit 
+        TODO: ajustar validação do forms
+        */}
       <form onSubmit={handleSubmit}>
         <FormFieldWrapper>
           <Label htmlFor='1'>
@@ -89,14 +86,26 @@ const CadastroCategoria = () =>{
           Cadastrar
         </ButtonLink>
       </form>
+      
+      <br/>
 
-      <ul>
+      <label htmlFor='categoriesList'>Categorias existentes:</label>
+      <ul id='categoriesList'>
         { 
-          categories.map( (category, index) =>{
+          ! categoriesList ?
+          <span>Carregando Lista de Categorias...</span> 
+          :
+          categoriesList.map( (category, index) =>{
           return <li key={`${category}${index}`}>{category.titulo}</li>
           })
         }
       </ul>
+    
+      <Link onClick={()=> history.goBack()}>
+        Voltar
+      </Link>
+
+      <br/>
 
       <Link to="/">
         Ir para Home

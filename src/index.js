@@ -20,7 +20,7 @@ ReactDOM.render(
       <Route path='/cadastro/categoria' component={CadastroCategoria} exact />
 
       <Route component={
-        ()=> <h1>Error 404</h1>
+        ()=> window.location.assign('https://http.cat/404')
       } />
     </Switch>
   </BrowserRouter>,
