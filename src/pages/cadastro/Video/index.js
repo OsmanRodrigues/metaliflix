@@ -4,6 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { FormFieldWrapper, Label, Input } from '../Categoria/styles';
 import { useForm, useCategoriesList } from '../../../hooks/hooks';
 import { ButtonLink } from '../../../components/Menu/styles';
+import { api } from '../../../services/api';
 
 const CadastroVideo = () =>{
   const history = useHistory()
@@ -16,21 +17,17 @@ const CadastroVideo = () =>{
   const {values, handleChange, clearForm} = useForm(initialValues)
   const {categoriesList} = useCategoriesList()
   
-  const registerVideo = async (videoInfos) =>{
-    //TODO: organizar com instancia custom do axios
-    const DB_URL = 'http://localhost:8080/videos' 
-    fetch(DB_URL, {
-      method: 'POST',
+  const registerVideo = async (videoInfos) =>{ 
+    const body = JSON.stringify(videoInfos)
+
+    api.post('/videos', body, {
       headers:{
         'Content-type':'application/json'
-      },
-      body: JSON.stringify(videoInfos)
-    }).then(async(r)=>{
-      if(r.ok){
-        const response = await r.json();
+    }})
+    .then(response=>{
+      if(response.data){
+        window.alert('Vídeo cadastrado com sucesso!')
         history.push('/')
-        console.log(response)
-        return response
       }
       throw new Error('Não foi possível cadastrar o vídeo.')
     })
@@ -38,16 +35,20 @@ const CadastroVideo = () =>{
   
   const handleSubmit = async (event) =>{
     event.preventDefault()
-    await registerVideo({
+
+    const videoInfos = {
       titulo: values.title,
       url: values.url,
       categoriaId: values.categoryId
-    })
+    }
+    await registerVideo(videoInfos)
+
     clearForm()
   } 
 
   //TODO: validar forms, tratar erros
   //TODO: ajustar responsividade do botão de cadastrar
+  //TODO: ajustar para que o vídeo seja cadastrado na categoria selecionada
   return(
     <PageDefault>
       
