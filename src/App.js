@@ -1,49 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import BannerMain from './components/BannerMain';
-import VideoCardGroup from './components/Carousel';
-import PageDefault from './components/PageDefault';
-
-import {getAllContent} from './services/api';
+import React from 'react';
 
 import dotenv from 'dotenv';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import CadastroVideo from './pages/Cadastro/Video';
+import CadastroCategoria from './pages/Cadastro/Categoria';
 
-function App() {
-
+const App =()=>{
   dotenv.config()
 
-  const [content, setContent] = useState(null)
-  
-  const mountCarousel = content && content.map(category =>{
-      return <VideoCardGroup 
-      ignoreFirstVideo = {true}
-      category = {category} 
-      />;
-  });
+  return(
+    <BrowserRouter>
+      <Switch>
+        <Route path='/' component={Home} exact />
 
-  useEffect(()=>{
-    getAllContent()
-    .then( async (response) =>{ 
-      const allContent = await response.data
-      setContent(allContent)
-    }).catch(error =>{
-      console.log(error.message)
-      window.alert('Desculpe, não foi possível carregar os vídeos...')
-    })
-  }, [])
+        <Route path='/cadastro/video' component={CadastroVideo} exact />
+        
+        <Route path='/cadastro/categoria' component={CadastroCategoria} exact />
 
-  return (
-    <PageDefault>
-      {
-        content &&
-        <BannerMain
-        videoTitle = {content[0].videos[0].titulo}
-        videoDescription = {content[0].link_extra.text}
-        url = {content[0].videos[0].url}
-        />
-      }
-      {mountCarousel}
-    </PageDefault>
-  );
+        <Route component={
+          ()=> window.location.assign('https://http.cat/404')
+        } />
+      </Switch>
+    </BrowserRouter>
+  )
 }
-
 export default App;

@@ -3,10 +3,10 @@ import { VideoCardGroupContainer, Title, ExtraLink } from './styles';
 import VideoCard from './components/VideoCard';
 import Slider, {SliderItem} from './components/Slider';
 
-function Carousel({
+const Carousel = ({
   ignoreFirstVideo,
   category,
-}) {
+}) => {
 
   const categoryTitle = category.titulo;
   const categoryColor = category.cor;
