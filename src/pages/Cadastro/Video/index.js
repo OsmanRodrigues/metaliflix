@@ -1,9 +1,8 @@
 import React from 'react';
 import PageDefault from '../../../components/PageDefault';
 import { Link, useHistory } from 'react-router-dom';
-import { FormFieldWrapper, Label, Input } from '../Categoria/styles';
+import { FormFieldWrapper, Label, Input, FormButton } from '../Categoria/styles';
 import { useForm, useCategoriesList } from '../../../hooks/hooks';
-import { ButtonLink } from '../../../components/Menu/styles';
 import { api } from '../../../services/api';
 
 const CadastroVideo = () =>{
@@ -46,18 +45,20 @@ const CadastroVideo = () =>{
     clearForm()
   } 
 
-  //TODO: validar forms, tratar erros
   //TODO: ajustar responsividade do botão de cadastrar
   //TODO: ajustar para que o vídeo seja cadastrado na categoria selecionada
   return(
-    <PageDefault>
-      
+    <PageDefault> 
       <h1>Cadastro de Vídeo</h1>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <FormFieldWrapper>
           <Label htmlFor='1'>
             <Input
+            required
+            pattern='[A-Z][a-z0-9_-]{1,59}'
+            title='Apenas letras, números, traço ou underline. No mínimo 4 caracteres.'
+            minLength='8'
             id='1'
             name='title'
             type='text'
@@ -73,6 +74,7 @@ const CadastroVideo = () =>{
         <FormFieldWrapper>
           <Label htmlFor='2'>
             <Input
+            required
             id='2'
             name='url'
             type='url'
@@ -88,6 +90,8 @@ const CadastroVideo = () =>{
         <FormFieldWrapper>
           <Label htmlFor='3'>
             <Input
+            required
+            title='Apenas as categorias sugeridas. Cadastre categoria caso deseje uma outra.'
             autoComplete={categoriesList ? 'off':'on'}
             id='3'
             name='category'
@@ -113,9 +117,9 @@ const CadastroVideo = () =>{
           </datalist>
         </FormFieldWrapper>
 
-        <ButtonLink onClick={handleSubmit}>
+        <FormButton>
           Cadastrar
-        </ButtonLink>
+        </FormButton>
       </form>
 
       <br/>
