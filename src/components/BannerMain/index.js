@@ -1,14 +1,7 @@
 import React from 'react';
 import VideoIframeResponsive from './components/VideoIframeResponsive';
 import { BannerMainContainer, ContentAreaContainer, WatchButton } from './styles';
-
-const getYouTubeId = (youtubeURL) =>{
-  return youtubeURL
-    .replace(
-      /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/,
-      '$7',
-    );
-}
+import { getYouTubeId } from '../../utils/utils';
 
 const BannerMain =({
   videoTitle,
@@ -35,6 +28,7 @@ const BannerMain =({
           <VideoIframeResponsive
             youtubeID={youTubeID}
           />
+          
           <WatchButton>
             Assistir
           </WatchButton>

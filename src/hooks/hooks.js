@@ -15,7 +15,6 @@ const useForm =(initialValues)=>{
 }
 
 const useCategoriesList = (initialList) =>{
-
   const [categoriesList, setCategoriesList] = useState(initialList ? initialList : [])
 
   useEffect(()=>{

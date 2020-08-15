@@ -5,11 +5,7 @@ import PageDefault from '../../components/PageDefault';
 
 import {getAllContent} from '../../services/api';
 
-import dotenv from 'dotenv';
-
 const Home = () =>{
-  dotenv.config()
-
   const [content, setContent] = useState(null)
   
   const mountCarousel = content && content.map(category =>{
