@@ -1,9 +1,8 @@
 import React from 'react';
 import PageDefault from '../../../components/PageDefault';
 import { Link, useHistory } from 'react-router-dom';
-import { ButtonLink } from '../../../components/Menu/styles';
 import {
-  FormFieldWrapper, Label, Input
+  FormFieldWrapper, Label, Input, FormButton
 } from './styles';
 
 import{useForm, useCategoriesList} from '../../../hooks/hooks';
@@ -29,16 +28,15 @@ const CadastroCategoria = () =>{
 
   return(
     <PageDefault>
-      
       <h1>Cadastro de Categoria: {values.currentCategory} </h1>
-        {/* 
-        TODO: analisar comportamento do onsubmit 
-        TODO: ajustar validação do forms
-        */}
-      <form onSubmit={handleSubmit}>
+
+      <form id='categoryForm' onSubmit={handleSubmit}>
         <FormFieldWrapper>
           <Label htmlFor='1'>
             <Input
+            required
+            pattern='[A-Z][A-Za-z]{1,19}'
+            title='Apenas letras. No mínimo 4 e a primeira deve ser maiúscula.'
             id='1'
             name='currentCategory'
             type='text'
@@ -54,9 +52,15 @@ const CadastroCategoria = () =>{
         <FormFieldWrapper>
           <Label htmlFor='2'>
             <Input
+            cols='80'
+            title='No mínimo 30 e no máximo 120 caracteres'
             id='2'
             name='description'
-            as='textarea'currentCategory
+            as='textarea'
+            required
+            minLength='30'
+            maxLength='120'
+            form='categoryForm'
             value={values.description}
             onChange={handleChange}
             />
@@ -70,6 +74,7 @@ const CadastroCategoria = () =>{
         <FormFieldWrapper>
           <Label htmlFor='3'>
             <Input
+            required
             id='3'
             name='color'
             type='color'
@@ -82,9 +87,9 @@ const CadastroCategoria = () =>{
           </Label>
         </FormFieldWrapper>
         
-        <ButtonLink onClick={handleSubmit}>
+        <FormButton>
           Cadastrar
-        </ButtonLink>
+        </FormButton>
       </form>
       
       <br/>
@@ -101,7 +106,7 @@ const CadastroCategoria = () =>{
         }
       </ul>
     
-      <Link onClick={()=> history.goBack()}>
+      <Link to='/cadastro/video'>
         Voltar
       </Link>
 
