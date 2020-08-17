@@ -13,10 +13,12 @@ const Main = styled.main`
   padding: 0;
 `;
 
-const PageDefault = ({ children }) =>{
+const PageDefault = ({ children, showButtonLink }) =>{
   return(
     <>
-      <Menu />
+      <Menu>
+      {showButtonLink}
+      </Menu> 
 
       <Main>
       {children}

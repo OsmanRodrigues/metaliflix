@@ -4,8 +4,8 @@ import { Link, useHistory } from 'react-router-dom';
 import {
   FormFieldWrapper, Label, Input, FormButton
 } from './styles';
-
 import{useForm, useCategoriesList} from '../../../hooks/hooks';
+import { inputPatterns, inputTitles } from '../../../utils/utils';
 
 const CadastroCategoria = () =>{
   const history = useHistory()
@@ -20,24 +20,24 @@ const CadastroCategoria = () =>{
   const {categoriesList} = useCategoriesList()
   
   const handleSubmit = (event)=>{
-    console.log('submeteu')
     event.preventDefault()
     clearForm()
     history.push('/')
+    window.alert('*Isto é uma simulação* \n Sua solicitação de nova categoria será analisada.')
   }
 
   return(
-    <PageDefault>
+    <PageDefault showButtonLink={false}>
       <h1>Cadastro de Categoria: {values.currentCategory} </h1>
 
       <form id='categoryForm' onSubmit={handleSubmit}>
         <FormFieldWrapper>
-          <Label htmlFor='1'>
+          <Label htmlFor='categoryFormInput1'>
             <Input
             required
-            pattern='[A-Z][A-Za-z]{1,19}'
-            title='Apenas letras. No mínimo 4 e a primeira deve ser maiúscula.'
-            id='1'
+            pattern={inputPatterns.categoryTitle}
+            title={inputTitles.categoryTitle}
+            id='categoryFormInput1'
             name='currentCategory'
             type='text'
             value={values.currentCategory}
@@ -50,11 +50,11 @@ const CadastroCategoria = () =>{
         </FormFieldWrapper>
         
         <FormFieldWrapper>
-          <Label htmlFor='2'>
+          <Label htmlFor='categoryFormInput2'>
             <Input
             cols='80'
-            title='No mínimo 30 e no máximo 120 caracteres'
-            id='2'
+            title={inputTitles.categoryDescription}
+            id='categoryFormInput2'
             name='description'
             as='textarea'
             required
@@ -72,10 +72,10 @@ const CadastroCategoria = () =>{
         </FormFieldWrapper>
         
         <FormFieldWrapper>
-          <Label htmlFor='3'>
+          <Label htmlFor='categoryFormInput3'>
             <Input
             required
-            id='3'
+            id='categoryFormInput3'
             name='color'
             type='color'
             value={values.color}
@@ -88,7 +88,7 @@ const CadastroCategoria = () =>{
         </FormFieldWrapper>
         
         <FormButton>
-          Cadastrar
+          Cadastrar Categoria
         </FormButton>
       </form>
       

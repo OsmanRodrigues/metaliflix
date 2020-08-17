@@ -35,7 +35,7 @@ const Input = styled.input`
   color: #F5F5F5;
   display: block;
   width: 100%;
-  height: 57px;
+  height: 64px;
   font-size: 18px;
   
   outline: 0;
@@ -89,7 +89,7 @@ const FormButton = styled.button`
   }
   
   @media (max-width: 800px) {
-    
+    width: 100%;
     position: fixed;
     left: 0;
     right: 0;
@@ -98,7 +98,6 @@ const FormButton = styled.button`
     border-radius: 0;
     border: 0;
     text-align: center;
-    
   }
 `
 

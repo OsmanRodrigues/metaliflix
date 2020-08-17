@@ -7,8 +7,7 @@ import {
 
 import { Link } from 'react-router-dom';
 
-const Menu =()=>{
-
+const Menu =(showButtonLink)=>{
   return(
     <MenuWrapper>
       <Link to='/'>
@@ -16,8 +15,10 @@ const Menu =()=>{
       </Link>
 
       <ButtonLink
+        showButtonLink={showButtonLink.children}
         as={Link} 
-        to='/cadastro/video'>
+        to='/cadastro/video'
+      >
         Novo vídeo
       </ButtonLink>
     </MenuWrapper>

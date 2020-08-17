@@ -188,22 +188,10 @@
       "url": "https://www.youtube.com/watch?v=JSapXD9vxYA"
     },
     {
-      "titulo": "Como funciona o computador?",
-      "url": "https://www.youtube.com/watch?v=lymtuqJdf8U&t=40s",
-      "categoriaId": 1,
+      "titulo": "Assassins Creed Valhalla",
+      "url": "https://www.youtube.com/watch?v=ssrNcwxALS4",
+      "categoriaId": 5,
       "id": 25
-    },
-    {
-      "titulo": "As Skills de um Desenvolvedor Front-End // Vlog #70",
-      "url": "https://www.youtube.com/watch?v=TWy2rxyZLrE",
-      "categoriaId": 1,
-      "id": 26
-    },
-    {
-      "titulo": "Assassin's Creed Valhalla",
-      "url": "https://www.youtube.com/watch?v=TUbgBVTD7VI",
-      "categoriaId": 1,
-      "id": 27
     }
   ]
 }

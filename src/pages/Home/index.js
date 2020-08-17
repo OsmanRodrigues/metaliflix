@@ -27,7 +27,7 @@ const Home = () =>{
   }, [])
 
   return (
-    <PageDefault>
+    <PageDefault showButtonLink>
       {
         content &&
         <BannerMain

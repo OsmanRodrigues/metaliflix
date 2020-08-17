@@ -39,6 +39,7 @@ const MenuWrapper = styled.nav`
 const Logo = styled.img`
    max-width: 168px;
    @media (max-width: 800px){
+    margin-top:8px;
     max-width: 105px;
   }
 `;
@@ -55,7 +56,7 @@ const ButtonLink = styled.a`
   outline: none;
   border-radius: 5px;
   text-decoration: none;
-  display: inline-block;
+  display:${props => props.showButtonLink ? 'inline-block' : 'none'};
   transition: opacity .3s;
 
   &:hover,

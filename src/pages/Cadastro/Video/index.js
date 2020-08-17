@@ -3,6 +3,7 @@ import PageDefault from '../../../components/PageDefault';
 import { Link, useHistory } from 'react-router-dom';
 import { FormFieldWrapper, Label, Input, FormButton } from '../Categoria/styles';
 import { useForm, useCategoriesList } from '../../../hooks/hooks';
+import { inputPatterns, inputTitles } from '../../../utils/utils';
 import { api } from '../../../services/api';
 
 const CadastroVideo = () =>{
@@ -13,7 +14,7 @@ const CadastroVideo = () =>{
     category:'',
     categoryId: 1
   }
-  const {values, handleChange, clearForm} = useForm(initialValues)
+  const {values, handleChange, clearForm, setValues} = useForm(initialValues)
   const {categoriesList} = useCategoriesList()
   
   const registerVideo = async (videoInfos) =>{ 
@@ -25,10 +26,11 @@ const CadastroVideo = () =>{
     }})
     .then(response=>{
       if(response.data){
-        window.alert('Vídeo cadastrado com sucesso!')
+        window.alert('*Isto é uma simulação* \n Vídeo cadastrado com sucesso!')
         history.push('/')
+      }else{
+        window.alert('Não foi possível cadastrar o vídeo.')
       }
-      throw new Error('Não foi possível cadastrar o vídeo.')
     })
   }
   
@@ -40,26 +42,40 @@ const CadastroVideo = () =>{
       url: values.url,
       categoriaId: values.categoryId
     }
-    await registerVideo(videoInfos)
 
+    await registerVideo(videoInfos)
     clearForm()
   } 
 
-  //TODO: ajustar responsividade do botão de cadastrar
-  //TODO: ajustar para que o vídeo seja cadastrado na categoria selecionada
+  const handleChoseCategory =(event)=>{
+    const {currentTarget, target} = event
+    const selectedCategoryName = target.value
+    const options = [...currentTarget.children]
+    
+    const selectedOptionAttributes = options.find(option=>{
+      return option.attributes.value && 
+      option.attributes.value.value === selectedCategoryName
+    })
+ 
+    setValues({...values, 
+      categoryId: selectedOptionAttributes ? Number(selectedOptionAttributes.id) : 1
+    })
+  }
+
   return(
-    <PageDefault> 
+    <PageDefault showButtonLink={false}> 
       <h1>Cadastro de Vídeo</h1>
 
       <form onSubmit={handleSubmit}>
         <FormFieldWrapper>
-          <Label htmlFor='1'>
+          <Label htmlFor='videoFormInput1'>
             <Input
             required
-            pattern='[A-Z][a-z0-9_-]{1,59}'
-            title='Apenas letras, números, traço ou underline. No mínimo 4 caracteres.'
-            minLength='8'
-            id='1'
+            pattern={inputPatterns.videoTitle}
+            title={inputTitles.videoTitle}
+            maxLength='60'
+            id='videoFormInput1'
+            autoComplete='off'
             name='title'
             type='text'
             value={values.title}
@@ -72,10 +88,12 @@ const CadastroVideo = () =>{
         </FormFieldWrapper>
 
         <FormFieldWrapper>
-          <Label htmlFor='2'>
+          <Label htmlFor='videoFormInput2'>
             <Input
             required
-            id='2'
+            pattern={inputPatterns.videoUrl}
+            title={inputTitles.videoUrl}
+            id='videoFormInput2'
             name='url'
             type='url'
             value={values.url}
@@ -88,37 +106,42 @@ const CadastroVideo = () =>{
         </FormFieldWrapper>
 
         <FormFieldWrapper>
-          <Label htmlFor='3'>
+          <Label htmlFor='videoFormInput3'>
             <Input
             required
-            title='Apenas as categorias sugeridas. Cadastre categoria caso deseje uma outra.'
-            autoComplete={categoriesList ? 'off':'on'}
-            id='3'
+            title={inputTitles.videoCategory}
+            id='videoFormInput3'
             name='category'
             type='text'
             value={values.category}
             onChange={handleChange}
-            list={'suggestionFor_3'}
-            />
+            as='select'
+            onClick={handleChoseCategory}
+            >
+            <option>{''}</option>
+            {!categoriesList ?
+              <option>Buscando categorias disponíveis...</option>
+              :
+              categoriesList.map(category=>{
+              return (
+                <option
+                key={category.id} 
+                id={category.id} 
+                value={category.titulo}
+                >
+                  {category.titulo}
+                </option>
+              )})
+            }
+            </Input>
             <Label.Text>
             Categoria:
             </Label.Text>
           </Label>
-
-          <datalist id={'suggestionFor_3'}>
-            {! categoriesList ?
-             <option>Carregando Lista de Categorias...</option>
-             :
-             categoriesList.map(category=>{
-              return <option value={category.titulo}>
-                {category.titulo}
-              </option>
-            })}
-          </datalist>
         </FormFieldWrapper>
 
         <FormButton>
-          Cadastrar
+          Cadastrar Vídeo
         </FormButton>
       </form>
 
