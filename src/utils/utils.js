@@ -1,5 +1,5 @@
 const inputPatterns ={
-  videoTitle:"[A-Z]([A-z0-9_-]| ){2,}",
+  videoTitle:"[A-Z]([A-z0-9_-]| )+*",
   videoUrl:"^https://(www.youtube.com/(watch[?]v?=)[A-Za-z0-9_-]+$|youtu.be/[A-Za-z0-9_-]+$)",
   categoryTitle:"[A-Z][A-Za-z]{1,19}"
 }
@@ -20,4 +20,16 @@ const getYouTubeId = (youtubeURL) =>{
     );
 }
 
-export{getYouTubeId, inputPatterns, inputTitles}
+const indexRandomizer =(initialIndex, limit)=>{
+  const randomNumber = Math.floor(Math.random()*(limit-0) + 0)
+  const adjust =()=> {
+    if(randomNumber === initialIndex){
+      return randomNumber === limit ? -1 : 1
+    }
+    return 0
+  }
+
+  return randomNumber + adjust()
+}
+
+export{getYouTubeId, inputPatterns, inputTitles, indexRandomizer}

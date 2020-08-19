@@ -41,7 +41,7 @@
       "titulo": "Folk Metal",
       "cor": "red",
       "link_extra": {
-        "text":"Música popular e folclórica misturadas com Heavy Metal!!! Como não pensaram nisso antes?!",
+        "text": "Música popular e folclórica misturadas com Heavy Metal!!! Como não pensaram nisso antes?!",
         "url": "https://pt.wikipedia.org/wiki/Folk_metal"
       }
     }
@@ -122,14 +122,14 @@
     {
       "id": 13,
       "categoriaId": 3,
-      "titulo": "Faint - Linkin Park",
-      "url": "https://www.youtube.com/watch?v=LYU-8IFcDPw"
+      "titulo": "In The End - Linkin Park",
+      "url": "https://www.youtube.com/watch?v=e7dAfFxG_0o"
     },
     {
       "id": 14,
       "categoriaId": 3,
       "titulo": "Slipknot - Before I Forget",
-      "url": "https://www.youtube.com/watch?v=qw2LU1yS7aw"
+      "url": "https://www.youtube.com/watch?v=mexXOdAF50g"
     },
     {
       "id": 15,
@@ -183,11 +183,11 @@
       "id": 23,
       "categoriaId": 5,
       "titulo": "Korpiklaani - A Man With A Plan",
-      "url": "https://www.youtube.com/watch?v=bc0sJvtKrRM"
+      "url": "https://www.youtube.com/watch?v=XSI_gU1RpEc"
     },
     {
-      "titulo": "Cangaço - Positivo",
-      "url": "https://www.youtube.com/watch?v=xnIDIYmM8-c",
+      "titulo": "Cangaço - Guerreiro",
+      "url": "https://www.youtube.com/watch?v=aknQOMfFc9I",
       "categoriaId": 5,
       "id": 24
     },
@@ -202,6 +202,36 @@
       "categoriaId": 2,
       "titulo": "Ratos de Porão - Crucificados Pelo Sistema",
       "url": "https://www.youtube.com/watch?v=OptW6bupQ5A"
+    },
+    {
+      "titulo": "Turisas - Stand Up And Fight",
+      "url": "https://www.youtube.com/watch?v=P5Kt1tvU2WY",
+      "categoriaId": 5,
+      "id": 27
+    },
+    {
+      "titulo": "Sepultura - Cut Throat",
+      "url": "https://www.youtube.com/watch?v=EgkLvahhyn0",
+      "categoriaId": 4,
+      "id": 28
+    },
+    {
+      "titulo": "Lamb of God - Redneck",
+      "url": "https://www.youtube.com/watch?v=QPhrucZ-upw",
+      "categoriaId": 4,
+      "id": 29
+    },
+    {
+      "titulo": "System of A Down - Holy Mountains",
+      "url": "https://www.youtube.com/watch?v=WgV6zVxRsIc",
+      "categoriaId": 3,
+      "id": 30
+    },
+    {
+      "titulo": "Nação Zumbi - Meu Maracatu Pesa Uma Tonelada",
+      "url": "https://www.youtube.com/watch?v=Pf5FXdr-Oks",
+      "categoriaId": 3,
+      "id": 31
     }
   ]
 }

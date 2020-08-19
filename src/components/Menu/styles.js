@@ -56,7 +56,7 @@ const ButtonLink = styled.a`
   outline: none;
   border-radius: 5px;
   text-decoration: none;
-  display:${props => props.showButtonLink ? 'inline-block' : 'none'};
+  display:${props => props.showbuttonlink ? 'inline-block' : 'none'};
   transition: opacity .3s;
 
   &:hover,

@@ -27,7 +27,7 @@ const CadastroCategoria = () =>{
   }
 
   return(
-    <PageDefault showButtonLink={false}>
+    <PageDefault showbuttonlink={false}>
       <h1>Cadastro de Categoria: {values.currentCategory} </h1>
 
       <form id='categoryForm' onSubmit={handleSubmit}>

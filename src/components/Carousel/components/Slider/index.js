@@ -37,19 +37,20 @@ export const SliderItem = styled.li`
   }
 `;
 
-const Slider = ({ children }) => (
-  <Container>
-    <SlickSlider {...{
-      variableWidth: true,
-      adaptiveHeight: true,
-      dots: true,
-      infinite: true,
-      speed: 400,
-    }}
-    >
-      {children}
-    </SlickSlider>
-  </Container>
-);
-
+const Slider = ({ children }) =>{
+  return(
+    <Container>
+      <SlickSlider {...{
+        variableWidth: true,
+        adaptiveHeight: true,
+        dots: true,
+        infinite: true,
+        speed: 400,
+      }}
+      >
+        {children}
+      </SlickSlider>
+    </Container>
+  ); 
+} 
 export default Slider; 

@@ -4,14 +4,16 @@ import VideoCardGroup from '../../components/Carousel';
 import PageDefault from '../../components/PageDefault';
 
 import {getAllContent} from '../../services/api';
+import { indexRandomizer } from '../../utils/utils';
 
 const Home = () =>{
+  //TODO: alterar cores das categorias
   const [content, setContent] = useState([])
-  //TODO: mudar o index para variar
   const [randomIndex, setRandomIndex] = useState(0)
   
-  const mountCarousel = content && content.map(category =>{
-      return <VideoCardGroup 
+  const mountCarousel = content && content.map((category, index) =>{
+      return <VideoCardGroup
+      key={index} 
       ignoreFirstVideo = {false}
       category = {category} 
       />;
@@ -29,29 +31,23 @@ const Home = () =>{
   }, [])
 
   useEffect(()=>{
-    //TODO: ajustar o limit
     if(content.length > 0){
-      const limit = 4
-      const indexRandomized = Math.floor(Math.random()*(limit-0) + 0)
-      const adjust =()=> {
-        if(indexRandomized === randomIndex){
-          return indexRandomized === limit ? -1 : 1
-        }
-        return 0
-      }
-      
-      window.setTimeout(()=>setRandomIndex((indexRandomized + adjust())), 10000)
+      const indexRandomized = indexRandomizer(randomIndex,4)
+      window.setTimeout(()=>setRandomIndex((indexRandomized)), 15000)
     }
   },[content, randomIndex])
   
   return (
-    <PageDefault showButtonLink>
+    <PageDefault showbuttonlink>
       {
         content.length > 0 &&
         <BannerMain
-        videoTitle = {content[randomIndex].videos[randomIndex].titulo}
+        videoTitle = {content[randomIndex].titulo}
         videoDescription = {content[randomIndex].link_extra.text}
-        url = {content[randomIndex].videos[randomIndex].url}
+        url = {content[randomIndex].videos[indexRandomizer(
+          content[randomIndex].videos.length,
+          content[randomIndex].videos.length
+        )].url}
         />
       }
       {mountCarousel}

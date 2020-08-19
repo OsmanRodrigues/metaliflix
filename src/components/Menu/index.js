@@ -7,7 +7,7 @@ import {
 
 import { Link } from 'react-router-dom';
 
-const Menu =(showButtonLink)=>{
+const Menu =(showbuttonlink)=>{
   return(
     <MenuWrapper>
       <Link to='/'>
@@ -15,7 +15,7 @@ const Menu =(showButtonLink)=>{
       </Link>
 
       <ButtonLink
-        showButtonLink={showButtonLink.children}
+        showbuttonlink={String(showbuttonlink.children)}
         as={Link} 
         to='/cadastro/video'
       >

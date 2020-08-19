@@ -63,7 +63,7 @@ const CadastroVideo = () =>{
   }
 
   return(
-    <PageDefault showButtonLink={false}> 
+    <PageDefault showbuttonlink={false}> 
       <h1>Cadastro de Vídeo</h1>
 
       <form onSubmit={handleSubmit}>
