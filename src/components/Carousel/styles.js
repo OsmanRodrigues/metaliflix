@@ -27,9 +27,10 @@ export const ExtraLink = styled.a`
     opacity: .5;
   }
   @media (max-width: 800px) {
-    display: block;
-    margin-bottom: 16px;
-    margin-left: 0;
+    display: none;
+    //display: block;
+    //margin-bottom: 16px;
+    //margin-left: 0;
   }
 `;
 

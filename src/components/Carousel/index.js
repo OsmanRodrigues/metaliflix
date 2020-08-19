@@ -3,7 +3,7 @@ import { VideoCardGroupContainer, Title, ExtraLink } from './styles';
 import VideoCard from './components/VideoCard';
 import Slider, {SliderItem} from './components/Slider';
 
-const Carousel = ({
+const VideoCardGroup = ({
   ignoreFirstVideo,
   category
 }) => {
@@ -11,7 +11,7 @@ const Carousel = ({
   const categoryColor = category.cor;
   const categoryExtraLink = category.link_extra;
   const videos = category.videos;
-
+  //TODO: incluir opção de mostrar a descrição da categoria quando em mobile
   return (
     <VideoCardGroupContainer>
       {categoryTitle && (
@@ -19,7 +19,8 @@ const Carousel = ({
           <Title style={{ backgroundColor: categoryColor || 'red' }}>
             {categoryTitle}
           </Title>
-          {categoryExtraLink && 
+          {
+            categoryExtraLink && 
             <ExtraLink href={categoryExtraLink.url} target="_blank">
               {categoryExtraLink.text}  
             </ExtraLink>
@@ -41,6 +42,7 @@ const Carousel = ({
                 videoURL={video.url}
                 categoryColor={categoryColor}
               />
+              
             </SliderItem>
           );
         })}
@@ -49,4 +51,4 @@ const Carousel = ({
   );
 }
 
-export default Carousel;
+export default VideoCardGroup;

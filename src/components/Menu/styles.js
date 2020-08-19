@@ -45,8 +45,8 @@ const Logo = styled.img`
 `;
 
 const ButtonLink = styled.a`
-  color: var(--white);
-  border: 1px solid var(--white);
+  color: var(--grayMedium);
+  border: 1px solid var(--grayMedium);
   box-sizing: border-box;
   cursor: pointer;
   padding: 16px 24px;

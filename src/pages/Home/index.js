@@ -7,7 +7,6 @@ import {getAllContent} from '../../services/api';
 import { indexRandomizer } from '../../utils/utils';
 
 const Home = () =>{
-  //TODO: alterar cores das categorias
   const [content, setContent] = useState([])
   const [randomIndex, setRandomIndex] = useState(0)
   
@@ -25,7 +24,6 @@ const Home = () =>{
       const allContent = await response.data
       setContent(allContent)
     }).catch(error =>{
-      console.log(error.message)
       window.alert('Desculpe, não foi possível carregar os vídeos...')
     })
   }, [])

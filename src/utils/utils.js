@@ -1,11 +1,11 @@
 const inputPatterns ={
-  videoTitle:"[A-Z]([A-z0-9_-]| )+*",
+  videoTitle:"[A-Z]([A-z0-9_-]| )+ - [A-Z]([A-z0-9_-]| )+",
   videoUrl:"^https://(www.youtube.com/(watch[?]v?=)[A-Za-z0-9_-]+$|youtu.be/[A-Za-z0-9_-]+$)",
   categoryTitle:"[A-Z][A-Za-z]{1,19}"
 }
 
 const inputTitles ={
-  videoTitle:'Apenas letras, números, traço ou underline. No mínimo 3 caracteres e a primeira maiúscula.',
+  videoTitle:'Nome da banda e da música separados por traço. A primeira letra de cada nome deve ser maiúscula. Apenas letras, números, "-" ou "_". Ex.: "Nome banda - Nome música"',
   videoUrl:'Apenas URLs do Youtube válidas.',
   videoCategory:'Apenas as categorias sugeridas. Cadastre nova categoria caso deseje outra.',
   categoryTitle:'Apenas letras. No mínimo 4 e a primeira deve ser maiúscula.',

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const VideoCardContainer = styled.a`
+  grid-row: 5 / 5;
   border: 2px solid;
   border-radius: 4px;
   text-decoration: none;

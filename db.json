@@ -3,7 +3,7 @@
     {
       "id": 1,
       "titulo": "Metal Clássico",
-      "cor": "#6BD1FF",
+      "cor": "#8c647e",
       "link_extra": {
         "text": "Sonoridade do primeiro estilo de Metal surgido entre as décadas de 70 e 80.",
         "url": "https://pt.wikipedia.org/wiki/Heavy_metal_tradicional"
@@ -12,7 +12,7 @@
     {
       "id": 2,
       "titulo": "Thrash Metal",
-      "cor": "orange",
+      "cor": "#e56d06",
       "link_extra": {
         "text": "Ritmo rápido, agressividade e crítica social foda!",
         "url": "https://pt.wikipedia.org/wiki/Thrash_metal"
@@ -21,7 +21,7 @@
     {
       "id": 3,
       "titulo": "Nu Metal",
-      "cor": "#00C86F",
+      "cor": "#878787",
       "link_extra": {
         "text": "Heavy Metal misturado com Música Eletrônica, Funk, Grunge, Punk, Hip Hop, Synthpop e muito mais!",
         "url": "https://pt.wikipedia.org/wiki/Nu_metal"
@@ -30,7 +30,7 @@
     {
       "id": 4,
       "titulo": "Death Metal",
-      "cor": "#9cd33b",
+      "cor": "#bf5e47",
       "link_extra": {
         "text": "Guitarras distorcidas e desafinadas, histórias de terror, religião e ocultismo...",
         "url": "https://pt.wikipedia.org/wiki/Death_metal"
@@ -39,7 +39,7 @@
     {
       "id": 5,
       "titulo": "Folk Metal",
-      "cor": "red",
+      "cor": "#739496",
       "link_extra": {
         "text": "Música popular e folclórica misturadas com Heavy Metal!!! Como não pensaram nisso antes?!",
         "url": "https://pt.wikipedia.org/wiki/Folk_metal"
@@ -50,19 +50,19 @@
     {
       "id": 1,
       "categoriaId": 1,
-      "titulo": "The Trooper - Iron Maiden",
+      "titulo": "Iron Maiden - The Trooper",
       "url": "https://www.youtube.com/watch?v=X4bgXH3sJ2Q"
     },
     {
       "id": 2,
       "categoriaId": 1,
-      "titulo": "Paranoid - Black Sabbath",
+      "titulo": "Black Sabbath - Paranoid",
       "url": "https://www.youtube.com/watch?v=nDqpt4Pau8I"
     },
     {
       "id": 3,
       "categoriaId": 1,
-      "titulo": "Smoke On The Water - Deep Purple",
+      "titulo": "Deep Purple - Smoke On The Water",
       "url": "https://www.youtube.com/watch?v=F7ZF2xaNhyw"
     },
     {
@@ -229,7 +229,7 @@
     },
     {
       "titulo": "Nação Zumbi - Meu Maracatu Pesa Uma Tonelada",
-      "url": "https://www.youtube.com/watch?v=Pf5FXdr-Oks",
+      "url": "https://www.youtube.com/watch?v=I6C807Kv8EQ",
       "categoriaId": 3,
       "id": 31
     }
