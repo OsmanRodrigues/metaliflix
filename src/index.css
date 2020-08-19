@@ -1,15 +1,15 @@
 * {
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Bootle', sans-serif;
 }
 
 :root {
-  --primary: tomato;
+  --primary: #A882DD;
   --black: #000000;
   --blackLighter: #9E9E9E;
   --grayLight: #F5F5F5;
   --grayMedium: #e5e5e5; 
-  --white: #FFFFFF;
+  --white: #F5f5f5;
   --frontEnd: #6BD1FF;
   --backEnd: #00C86F;
 }

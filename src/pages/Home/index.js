@@ -6,11 +6,13 @@ import PageDefault from '../../components/PageDefault';
 import {getAllContent} from '../../services/api';
 
 const Home = () =>{
-  const [content, setContent] = useState(null)
+  const [content, setContent] = useState([])
+  //TODO: mudar o index para variar
+  const [randomIndex, setRandomIndex] = useState(0)
   
   const mountCarousel = content && content.map(category =>{
       return <VideoCardGroup 
-      ignoreFirstVideo = {true}
+      ignoreFirstVideo = {false}
       category = {category} 
       />;
   });
@@ -26,14 +28,30 @@ const Home = () =>{
     })
   }, [])
 
+  useEffect(()=>{
+    //TODO: ajustar o limit
+    if(content.length > 0){
+      const limit = 4
+      const indexRandomized = Math.floor(Math.random()*(limit-0) + 0)
+      const adjust =()=> {
+        if(indexRandomized === randomIndex){
+          return indexRandomized === limit ? -1 : 1
+        }
+        return 0
+      }
+      
+      window.setTimeout(()=>setRandomIndex((indexRandomized + adjust())), 10000)
+    }
+  },[content, randomIndex])
+  
   return (
     <PageDefault showButtonLink>
       {
-        content &&
+        content.length > 0 &&
         <BannerMain
-        videoTitle = {content[0].videos[0].titulo}
-        videoDescription = {content[0].link_extra.text}
-        url = {content[0].videos[0].url}
+        videoTitle = {content[randomIndex].videos[randomIndex].titulo}
+        videoDescription = {content[randomIndex].link_extra.text}
+        url = {content[randomIndex].videos[randomIndex].url}
         />
       }
       {mountCarousel}
