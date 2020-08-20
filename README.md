@@ -18,7 +18,15 @@ Variáveis de ambiente: Dotenv.
 http://ocmr.metaliflix.surge.sh/
 
 ## Telas
-
+<head>
+<other head tags>
+<style>
+.noBorder{
+margin:0px;
+border:0px;
+}
+</style>
+</head>
 ### Desktop
 ![Kitten](https://user-images.githubusercontent.com/55052153/90803097-a1a10680-e2ee-11ea-81e8-fb057042253a.png#thumbnail)
 img[src*="#thumbnail"]{
