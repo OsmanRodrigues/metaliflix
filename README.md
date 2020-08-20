@@ -1,6 +1,6 @@
 <head>
    <style>
-      img[src*="#thumbnail"]{
+      #thumbnail{
       width:auto;
       height:406px;
       }
