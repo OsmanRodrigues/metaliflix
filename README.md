@@ -28,7 +28,7 @@ http://ocmr.metaliflix.surge.sh/
 
 ### Mobile
 
-<img src='https://user-images.githubusercontent.com/55052153/90809122-648d4200-e2f7-11ea-9607-23a0603d150e.png' width='auto' heigth='auto'>
-<img src='https://user-images.githubusercontent.com/55052153/90809175-75d64e80-e2f7-11ea-91b0-72c523eb85c5.png' width='auto' heigth='auto'>
-<img src='https://user-images.githubusercontent.com/55052153/90809224-88e91e80-e2f7-11ea-8528-a1c492940e91.png' width='auto' heigth='auto'>
+<img src='https://user-images.githubusercontent.com/55052153/90809122-648d4200-e2f7-11ea-9607-23a0603d150e.png' width='auto' heigth='auto' display='inline'>
+<img src='https://user-images.githubusercontent.com/55052153/90809175-75d64e80-e2f7-11ea-91b0-72c523eb85c5.png' width='auto' heigth='auto' display='inline'>
+<img src='https://user-images.githubusercontent.com/55052153/90809224-88e91e80-e2f7-11ea-8528-a1c492940e91.png' width='auto' heigth='auto' display='inline'>
 
