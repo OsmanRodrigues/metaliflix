@@ -31,7 +31,7 @@ const Home = () =>{
   useEffect(()=>{
     if(content.length > 0){
       const indexRandomized = indexRandomizer(randomIndex, content.length -1)
-      window.setTimeout(()=>setRandomIndex((indexRandomized)), 1000)
+      window.setTimeout(()=>setRandomIndex((indexRandomized)), 15000)
     }
   },[content, randomIndex])
   
