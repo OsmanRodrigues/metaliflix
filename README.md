@@ -1,5 +1,6 @@
-# Metaliflix \m/
+# Metaliflix <img src='https://raw.githubusercontent.com/OsmanRodrigues/metaliflix/master/src/assets/icon.png' width='75' heigth='75' display='inline'>
 
+https://raw.githubusercontent.com/OsmanRodrigues/metaliflix/master/src/assets/icon.png
 ## Descrição
 A Metaliflix é uma aplicação web baseada na interface da Netflix, mas focada na temática do gênero musical Heavy Metal e seus derivados. É um projeto para fins de estudo, testes de técnicas de frontend e aperfeiçoamento de demais habilidades necessárias ao Desenvolvimento de Software.
 
