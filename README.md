@@ -1,4 +1,4 @@
-# Metaliflix <img src='https://raw.githubusercontent.com/OsmanRodrigues/metaliflix/master/src/assets/icon.png' width='75' heigth='75' display='inline'>
+# Metaliflix <img src='https://raw.githubusercontent.com/OsmanRodrigues/metaliflix/master/src/assets/icon.png' width='45' heigth='45' display='inline'>
 
 https://raw.githubusercontent.com/OsmanRodrigues/metaliflix/master/src/assets/icon.png
 ## Descrição
