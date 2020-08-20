@@ -1,3 +1,11 @@
+<head>
+<style>
+img[src*="#thumbnail"]{
+   width:auto;
+   height:406px;
+}
+</style>
+</head>
 # Metaliflix \m/
 
 ## Descrição
@@ -18,14 +26,7 @@ Variáveis de ambiente: Dotenv.
 http://ocmr.metaliflix.surge.sh/
 
 ## Telas
-<head>
-<style>
-img[src*="#thumbnail"]{
-   width:auto;
-   height:406px;
-}
-</style>
-</head>
+
 ### Desktop
 ![Kitten](https://user-images.githubusercontent.com/55052153/90803097-a1a10680-e2ee-11ea-81e8-fb057042253a.png#thumbnail)
 
