@@ -9,7 +9,8 @@ A Metaliflix é uma aplicação web baseada na interface da Netflix, mas focada 
 ## Tecnologias auxiliares
 <li>Biblioteca principal: React.js;</li>
 <li>Estilização: Styled Components e React Slick (slider);</li> 
-<li>Requisições HTTP: JSON Server e Axios;</li> 
+<li>API(mockup): JSON Server</li>
+<li>Requisições HTTP: Axios;</li>
 <li>Variáveis de ambiente: Dotenv.</li>
 
 ## Saiba mais
