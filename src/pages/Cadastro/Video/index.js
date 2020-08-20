@@ -4,7 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { FormFieldWrapper, Label, Input, FormButton } from '../Categoria/styles';
 import { useForm, useCategoriesList } from '../../../hooks/hooks';
 import { inputPatterns, inputTitles } from '../../../utils/utils';
-import { api } from '../../../services/api';
+//import { api } from '../../../services/api';
 
 const CadastroVideo = () =>{
   const history = useHistory()
@@ -18,20 +18,20 @@ const CadastroVideo = () =>{
   const {categoriesList} = useCategoriesList()
   
   const registerVideo = async (videoInfos) =>{ 
-    const body = JSON.stringify(videoInfos)
-
-    api.post('/videos', body, {
-      headers:{
-        'Content-type':'application/json'
-    }})
-    .then(response=>{
-      if(response.data){
+    //Pegando dados na API simulada com a lib JSON Server
+    //const body = JSON.stringify(videoInfos)
+    //api.post('/videos', body, {
+    //  headers:{
+    //    'Content-type':'application/json'
+    //}})
+    //.then(response=>{
+    //  if(response.data){
         window.alert('*Isto é uma simulação* \n Vídeo cadastrado com sucesso!')
         history.push('/')
-      }else{
-        window.alert('Não foi possível cadastrar o vídeo.')
-      }
-    })
+    //  }else{
+    //    window.alert('Não foi possível cadastrar o vídeo.')
+    //  }
+    //})
   }
   
   const handleSubmit = async (event) =>{
@@ -63,7 +63,7 @@ const CadastroVideo = () =>{
   }
 
   return(
-    <PageDefault showbuttonlink={false}> 
+    <PageDefault showbuttonlink={false}>
       <h1>Cadastro de Vídeo</h1>
 
       <form onSubmit={handleSubmit}>

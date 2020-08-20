@@ -16,9 +16,9 @@ const Main = styled.main`
 const PageDefault = ({ children, showbuttonlink }) =>{
   return(
     <>
-      <Menu>
-      {showbuttonlink}
-      </Menu> 
+      <Menu 
+      showbuttonlink={showbuttonlink}
+      />
 
       <Main>
       {children}
