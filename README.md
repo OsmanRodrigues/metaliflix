@@ -1,11 +1,12 @@
 <head>
-<style>
-img[src*="#thumbnail"]{
-   width:auto;
-   height:406px;
-}
-</style>
+   <style>
+      img[src*="#thumbnail"]{
+      width:auto;
+      height:406px;
+      }
+   </style>
 </head>
+
 # Metaliflix \m/
 
 ## Descrição
