@@ -6,7 +6,7 @@
       }
    </style>
 </head>
-
+<body>
 # Metaliflix \m/
 
 ## Descrição
@@ -35,5 +35,5 @@ http://ocmr.metaliflix.surge.sh/
 //<kbd>
 //<img src='https://user-images.githubusercontent.com/55052153/90803097-a1a10680-e2ee-11ea-81e8-fb057042253a.png' width='auto' heigth='406' align-self='center'   //  border-radius='8'>
 //</kbd>
-
+</body>
 
