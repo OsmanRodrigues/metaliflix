@@ -7,6 +7,9 @@ A Metaliflix é uma aplicação web baseada na interface da Netflix, mas focada 
 HTML, CSS e JavaScript     
 
 ## Tecnologias auxiliares
+<ul>
+  <li>Biblioteca principal: React.js;</li>
+</ul>
 Biblioteca principal: React.js; 
 Estilização: Styled Components e React Slick (slider); 
 Requisições HTTP: JSON Server e Axios; 
@@ -21,6 +24,6 @@ http://ocmr.metaliflix.surge.sh/
 
 ### Desktop
 <kbd>
-<img src='https://user-images.githubusercontent.com/55052153/90803097-a1a10680-e2ee-11ea-81e8-fb057042253a.png' width='auto' heigth='406' align-self='center' border='20'>
+<img src='https://user-images.githubusercontent.com/55052153/90803097-a1a10680-e2ee-11ea-81e8-fb057042253a.png' width='auto' heigth='406' align-self='center'>
 </kbd>
 
