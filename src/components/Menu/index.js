@@ -15,7 +15,7 @@ const Menu =({showbuttonlink})=>{
       </Link>
 
       <ButtonLink
-        showbuttonlink={String(showbuttonlink)}
+        showbuttonlink={showbuttonlink}
         as={Link} 
         to='/cadastro/video'
       >
