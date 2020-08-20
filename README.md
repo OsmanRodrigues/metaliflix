@@ -22,7 +22,7 @@ http://ocmr.metaliflix.surge.sh/
 ### Desktop
 ![Kitten]('https://user-images.githubusercontent.com/55052153/90803097-a1a10680-e2ee-11ea-81e8-fb057042253a.png'#thumbnail)
 <kbd>
-  <img src='https://user-images.githubusercontent.com/55052153/90803097-a1a10680-e2ee-11ea-81e8-fb057042253a.png' width='auto' heigth='406' align-self='center'       border-radius:'8'>
+  <img src='https://user-images.githubusercontent.com/55052153/90803097-a1a10680-e2ee-11ea-81e8-fb057042253a.png' width='auto' heigth='406' align-self='center'       border-radius='8'>
   
   img[src~=#thumbnail] {
    border: 1px solid black;
