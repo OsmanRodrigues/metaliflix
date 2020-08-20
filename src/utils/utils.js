@@ -21,15 +21,11 @@ const getYouTubeId = (youtubeURL) =>{
 }
 
 const indexRandomizer =(initialIndex, limit)=>{
-  const randomNumber = Math.floor(Math.random()*(limit-0) + 0)
-  const adjust =()=> {
-    if(randomNumber === initialIndex){
-      return randomNumber === limit ? -1 : 1
-    }
-    return 0
+  let randomNumber = Math.floor(Math.random()*limit)
+  if(randomNumber === initialIndex){
+    randomNumber === limit ? randomNumber -= 1 : randomNumber += 1
   }
-
-  return randomNumber + adjust()
+  return randomNumber
 }
 
 export{getYouTubeId, inputPatterns, inputTitles, indexRandomizer}

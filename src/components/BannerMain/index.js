@@ -28,10 +28,11 @@ const BannerMain =({
           <VideoIframeResponsive
             youtubeID={youTubeID}
           />
-          
+          <a href={url}>
           <WatchButton>
             Assistir
           </WatchButton>
+          </a>
         </ContentAreaContainer.Item>
       </ContentAreaContainer>
     </BannerMainContainer>
